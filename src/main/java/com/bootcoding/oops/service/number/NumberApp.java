@@ -14,7 +14,7 @@ public class NumberApp {
         EvenOddService eos = new EvenOddService();
         PalindromeService ps = new PalindromeService();
         PrimeNumberService pns = new PrimeNumberService();
-      //
+        ArmstrongService armstrongService=new ArmstrongService();
         BufferedWriter writer = new BufferedWriter(new FileWriter("E:\\Softwares\\interface/numbers.csv"));
 
         ArrayList<Number> numbers = new ArrayList<>();
@@ -23,7 +23,9 @@ public class NumberApp {
             eos.evenOdd(randomNumber);
             ps.palindrome(randomNumber);
             pns.primeNumber(randomNumber);
+            armstrongService.isArmstrong(randomNumber);
             numbers.add(randomNumber);
+
         }
 
         for(Number number : numbers) {

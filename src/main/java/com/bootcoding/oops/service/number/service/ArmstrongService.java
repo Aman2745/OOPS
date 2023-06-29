@@ -1,4 +1,7 @@
 package com.bootcoding.oops.service.number.service;
+
+import com.bootcoding.oops.service.number.model.Number;
+
 /*
 * Input : 153
 Output : Yes
@@ -23,17 +26,17 @@ Output : Yes
 public class ArmstrongService {
 
     //function to check if the number is Armstrong or not
-    public boolean isArmstrong(int n) {
+    public void isArmstrong(Number number) {
 
         int temp, digits = 0, last = 0, sum = 0;
-     //assigning n into a temp variable
-        temp = n;
+     //assigning number into a temp variable
+        temp = number.getNum();
         //loop execute until the condition becomes false
         while (temp > 0) {
             temp = temp / 10;
             digits++;
         }
-        temp = n;
+        temp = number.getNum();
         while (temp > 0) {
     //determines the last digit from the number
             last = temp % 10;
@@ -42,11 +45,16 @@ public class ArmstrongService {
     //removes the last digit
             temp = temp / 10;
         }
-    //compares the sum with n
-        if (n == sum)
-//returns if sum and n are equal
-            return true;
-//returns false if sum and n are not equal
-        else return false;
+        //returns if sum and n are equal
+        //returns false if sum and n are not equal
+       if(number.getNum()==sum) {
+           number.setArmstrong( "armstrong");
+       }else{
+          number.setArmstrong( "Not an armstrong");
+       }
     }
+
+
+//returns false if sum and n are not equal
+
 }
