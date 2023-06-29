@@ -1,14 +1,19 @@
 package com.bootcoding.oops.service.number.service;
 
+import com.bootcoding.oops.service.number.model.Number;
+
 import java.util.Random;
 
 import static java.lang.Math.random;
 
 public class NumberService {
-    public int getRandomNumber(int n){
-        Random random=new Random();
-        n=random.nextInt(2000);
-        return  n;
+    //to get the randomnumber
+    public Number getRandomNumber(){
+        Random random = new Random();
+        int n = random.nextInt();
+        Number number = new Number();
+        number.setNum(n);
+        return number;
     }
 
 }

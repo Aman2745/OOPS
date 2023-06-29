@@ -2,28 +2,19 @@ package com.bootcoding.oops.service.number.model;
 
 public class Number {
     private int num;
-    private String evenOdd;
+    private String even;
     private String primeNumber;
-    private String palindrom;
-
-    public String getEvenOdd() {
-        return evenOdd;
-    }
-
-    public String getPrimeNumber() {
-        return primeNumber;
-    }
-
-    public void setPrimeNumber(String primeNumber) {
-        this.primeNumber = primeNumber;
-    }
-
-    public String getPalindrom() {
-        return palindrom;
-    }
-
-    public void setPalindrom(String palindrom) {
-        this.palindrom = palindrom;
+    private String palindrome;
+    private String armstrong;
+    @Override
+    public String toString() {
+        return "Number{" +
+                "num=" + num +
+                ", even='" + even + '\'' +
+                ", primeNumber='" + primeNumber + '\'' +
+                ", palindrome='" + palindrome + '\'' +
+                ", armstrong='" + armstrong + '\'' +
+                '}';
     }
 
     public int getNum() {
@@ -34,7 +25,35 @@ public class Number {
         this.num = num;
     }
 
-    public void setEvenOdd(String evenOdd) {
-        this.evenOdd = evenOdd;
+    public String getEven() {
+        return even;
+    }
+
+    public void setEven(String even) {
+        this.even = even;
+    }
+
+    public String getPrimeNumber() {
+        return primeNumber;
+    }
+
+    public void setPrimeNumber(String primeNumber) {
+        this.primeNumber = primeNumber;
+    }
+
+    public String getPalindrome() {
+        return palindrome;
+    }
+
+    public void setPalindrome(String palindrome) {
+        this.palindrome = palindrome;
+    }
+
+    public String getArmstrong() {
+        return armstrong;
+    }
+
+    public void setArmstrong(String armstrong) {
+        this.armstrong = armstrong;
     }
 }

@@ -1,29 +1,37 @@
 package com.bootcoding.oops.service.number;
 
+import com.bootcoding.oops.service.number.model.Number;
 import com.bootcoding.oops.service.number.service.*;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.ArrayList;
+
 public class NumberApp {
-    public static void main(String[] args) {
-     for(int i=0;i<5;i++){
-         NumberService numberService=new NumberService();
-         int n=numberService.getRandomNumber(1);
-//         System.out.println(n);
 
-         ArmstrongService armstrongService=new ArmstrongService();
-         System.out.println("ArmStrongNumber :"+armstrongService.isArmstrong(n));
+    public static void main(String[] args) throws Exception{
+        NumberService ns = new NumberService();
+        EvenOddService eos = new EvenOddService();
+        PalindromeService ps = new PalindromeService();
+        PrimeNumberService pns = new PrimeNumberService();
+      //
+        BufferedWriter writer = new BufferedWriter(new FileWriter("E:\\Softwares\\interface/numbers.csv"));
 
-         EvenOddService evenOddService=new EvenOddService();
-         System.out.println("Even or Odd :"+evenOddService.isEvenOdd(n));
+        ArrayList<Number> numbers = new ArrayList<>();
+        for(int i = 0; i < 100; i++){
+            Number randomNumber = ns.getRandomNumber();
+            eos.evenOdd(randomNumber);
+            ps.palindrome(randomNumber);
+            pns.primeNumber(randomNumber);
+            numbers.add(randomNumber);
+        }
 
-         PrimeNumberService primeNumberService=new PrimeNumberService();
-         primeNumberService.isprimenumber(n);
-
-         PalindromeService palindromeService=new PalindromeService();
-         palindromeService.ispalindrome(n);
-
-
-         System.out.println();
-     }
-
+        for(Number number : numbers) {
+            writer.write(number.toString());
+            writer.write("\n");
+        }
+        writer.flush();
+        writer.close();
     }
 }
+

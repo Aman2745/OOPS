@@ -1,17 +1,17 @@
 package com.bootcoding.oops.service.number.service;
-
+import com.bootcoding.oops.service.number.model.Number;
 public class PalindromeService {
-    public void ispalindrome(int n) {
-        int r, sum = 0, temp;
-        temp = n;
-        while (n > 0) {
-            r = n % 10;  //getting remainder
-            sum = (sum * 10) + r;
-            n = n / 10;
+    public void palindrome(Number number){
+        int org = number.getNum();
+        int rem = 0;
+        while(org != 0){
+            rem = rem * 10 + org % 10;
+            org = org / 10;
         }
-        if (temp == sum)
-            System.out.println("palindrome number ");
-        else
-            System.out.println("not palindrome");
+        if(rem == number.getNum()){
+            number.setPalindrome("PALINDROME");
+        }else{
+            number.setPalindrome("NOT PALINDROME");
+        }
     }
 }
